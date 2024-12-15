@@ -10,7 +10,7 @@ test/vader.vim:
 	git clone https://github.com/junegunn/vader.vim.git test/vader.vim
 
 .PHONY: clean
-clean: test/vader.vim
+clean:
 	rm -rf test/vader.vim
 
 .PHONY: test
