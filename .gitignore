@@ -1,3 +1,6 @@
+# test dependencies
+vader.vim/
+
 ### https://raw.github.com/github/gitignore/077ec2d64ed63f9db51bba853ac9f1cd51654da1/Global/Diff.gitignore
 
 *.patch
