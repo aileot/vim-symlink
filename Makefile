@@ -23,6 +23,10 @@ install:
 lint:
 	$(VINT) plugin
 
+.PHONY: clean
+clean: test/vader.vim
+	rm -rf test/vader.vim
+
 .PHONY: test
 test: test/vader.vim
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink.vader'
