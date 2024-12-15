@@ -17,6 +17,12 @@ Another implementation to resolve symbolic link paths.
 
 ## Install
 
+Install with [lazy.nvim](https://github.com/folke/lazy.nvim):
+
+```lua
+{ "aileot/vim-symlink" }
+```
+
 Install with [packer](https://github.com/wbthomason/packer.nvim):
 
 ```lua
