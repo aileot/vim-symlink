@@ -1,6 +1,6 @@
 " Make all paths in the tests relative to this directory
 Before:
-  execute 'cd '. fnameescape(fnamemodify(g:vader_file, ':p:h'))
+  execute 'cd' fnameescape(fnamemodify(g:vader_file, ':p:h'))
 
 " It should support editing normal files
 Execute (edit an existing normal file):
