@@ -1,7 +1,8 @@
 filetype off
 let &runtimepath .= ',' . expand('<sfile>:p:h') . '/vader.vim'
 let &runtimepath .= ',' . expand('<sfile>:p:h:h')
-filetype plugin indent on
-syntax enable
+filetype plugin on
 set nomore
 set noswapfile
+set nosplitright
+set nosplitbelow
