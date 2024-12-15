@@ -39,7 +39,7 @@ Plug 'aileot/vim-symlink'
 
 ### `b:symlink_should_resolve_path`
 
-(default: `1`)
+_(default: `1`)_\
 An buffer specific option.
 If it is set to `0` or `v:false`
 (or set `vim.b.symlink_should_resolve_path` to `false` in nvim),
