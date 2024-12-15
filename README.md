@@ -13,7 +13,9 @@ Another implementation to resolve symbolic link paths.
 
 - To exclude arbitrary paths,
 
-  - An option `b:symlink_should_resolve_path`
+  - An option
+    [`b:symlink_should_resolve_path`](#bsymlink_should_resolve_path)
+    is provided.
 
 ## Install
 
