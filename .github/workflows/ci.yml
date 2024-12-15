@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: install
-        run: make install
-      - name: lint
-        run: make lint
+      - name: vint
+        uses: reviewdog/action-vint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: test
         run: make test
