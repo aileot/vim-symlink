@@ -8,6 +8,9 @@ else ifeq ($(VIM),nvim)
 	VIM_FLAGS += --headless
 endif
 
+test/vader.vim:
+	git clone https://github.com/junegunn/vader.vim.git test/vader.vim
+
 .PHONY: all
 all: install lint test
 
@@ -21,7 +24,7 @@ lint:
 	$(VINT) plugin
 
 .PHONY: test
-test:
+test: test/vader.vim
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -R                                   -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -o fixture/foo.link fixture/bar.link -c 'Vader! symlink-split-horizontal.vader'
