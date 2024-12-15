@@ -1,6 +1,4 @@
-PIP ?= pip3
 VIM ?= vim
-VINT ?= vint
 VIM_FLAGS ?= --clean -u vimrc
 ifeq ($(VIM),vim)
 	VIM_FLAGS += -N -Es
@@ -10,18 +8,6 @@ endif
 
 test/vader.vim:
 	git clone https://github.com/junegunn/vader.vim.git test/vader.vim
-
-.PHONY: all
-all: install lint test
-
-.PHONY: install
-install:
-	git submodule update --init
-	$(PIP) install vim-vint==0.3.21
-
-.PHONY: lint
-lint:
-	$(VINT) plugin
 
 .PHONY: clean
 clean: test/vader.vim
