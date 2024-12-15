@@ -1,21 +1,16 @@
 # vim-symlink
 
-Another implementation to resolve symbolic link paths.
+Another implementation to resolve symbolic link paths,
+using `:file` instead of `:edit`.
 
 ## Features
 
-- As this implementation stands on `:file` instead of `:edit`,
-
-  - No `autocmd-nested`.
-  - No options for `:redraw`.
-  - No `:bwipeout`,
-    and no [moll/vim-bbye](https://github.com/moll/vim-bbye) dependency.
-
-- To exclude arbitrary paths,
-
-  - An option
-    [`b:symlink_should_resolve_path`](#bsymlink_should_resolve_path)
-    is provided.
+- No `autocmd-nested` for **performance**.
+- **Clean** buffer list without `:bwipeout`
+  and [moll/vim-bbye](https://github.com/moll/vim-bbye).
+- An option
+  [`b:symlink_should_resolve_path`](#bsymlink_should_resolve_path)
+  is provided to **exclude** arbitrary paths.
 
 ## Install
 
