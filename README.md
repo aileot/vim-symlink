@@ -10,7 +10,7 @@ using `:file` instead of `:edit`.
   and [moll/vim-bbye](https://github.com/moll/vim-bbye).
 - An option
   [`b:symlink_should_resolve_path`](#bsymlink_should_resolve_path)
-  is provided to **exclude** arbitrary paths.
+  to **exclude** arbitrary paths.
 
 ## Install
 
@@ -47,16 +47,14 @@ This option is expected to be set on `BufReadPre`.
 
 Due to the `:file` redirection, you could get confused in some autocmd events:
 
-- The values for `autocmd-pattern`, `<amatch>`, and `<afile>`,
-  to a symbolic link could be different from its **resolved** path,
-  but the symbolic link one itself.
+- The values of `autocmd-pattern`, `<amatch>`, and `<afile>`,
+  to a symbolic link would be either the **symbolic link** itself or its
+  **resolved** path.
 
-- The buffer name got by `bufname()` (and `nvim_buf_get_name()` in nvim)
-  could be different from what you expect to the path,
-  though the value of `<abuf>` for the resolved path
-  is the same as the symbolic link one,
+- The buffer names (by `bufname()`, or `nvim_buf_get_name()` in nvim)
+  might be different from what you expect to the path as well.
 
-Please consider applying `resolve()` to `<amatch>` or `<afile>` as your needs.
+Please consider applying `resolve()` to `<amatch>` or `<afile>` as needed.
 
 ## Acknowledgment
 
