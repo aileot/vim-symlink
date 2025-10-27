@@ -12,7 +12,7 @@ function! s:resolve_path(path) abort
   execute 'file' escaped
   " Refresh buffer to avoid the confirmation "Overwriting existing file...?"
   " on the first attempt to :write the resolved buffer.
-  edit
+  if &buftype !=# 'popup' | edit | endif
 endfunction
 
 augroup resolve_symlink
