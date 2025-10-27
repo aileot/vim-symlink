@@ -12,7 +12,12 @@ function! s:resolve_path(path) abort
   execute 'file' escaped
   " Refresh buffer to avoid the confirmation "Overwriting existing file...?"
   " on the first attempt to :write the resolved buffer.
-  if &buftype !=# 'popup' | edit | endif
+  try
+    edit
+  catch /^Vim\%((\a\+)\)\=:E994/
+    " if has('patch-8.1.1714') && !empty(&previewpopup), then
+    " ignore E994: Not allowed in a popup window
+  endtry
 endfunction
 
 augroup resolve_symlink
