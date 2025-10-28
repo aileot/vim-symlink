@@ -17,6 +17,7 @@ clean:
 test: test/vader.vim
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -R                                   -c 'Vader! symlink.vader'
+	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink-edit-in-popup.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -o fixture/foo.link fixture/bar.link -c 'Vader! symlink-split-horizontal.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -O fixture/foo.link fixture/bar.link -c 'Vader! symlink-split-vertical.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -d fixture/foo.link fixture/bar.link -c 'Vader! symlink-split-vertical.vader'
