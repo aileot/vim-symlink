@@ -1,0 +1,16 @@
+Before:
+  execute 'cd' fnameescape(fnamemodify(g:vader_file, ':p:h'))
+
+" It should follow the symlinks for every file
+Execute (skip the 2 Vader.vim buffers):
+  quit!
+  quit!
+
+Then (opening a symlinked file to a popup window):
+  if !has('&previewpopup')
+    finish
+  endif
+  set previewpopup=height:10,width:60
+  execute 'set tags='.. fnamemodify(g:vader_file, ':p:h') ..'/fixture/tagged/tags'
+  ptag Foo
+  AssertEqual 'fixture/tagged.original.vim', bufname('$')
