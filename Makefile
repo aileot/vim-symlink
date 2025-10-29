@@ -15,6 +15,8 @@ clean:
 
 .PHONY: test
 test: test/vader.vim
+	@echo Running tests against $(VIM) $(VIM_FLAGS)
+	@echo
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -R                                   -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink-edit-in-popup.vader'
