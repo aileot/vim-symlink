@@ -1,8 +1,8 @@
 VIM ?= vim
 VIM_FLAGS ?= --clean -u vimrc
-ifeq ($(VIM),vim)
+ifeq ($(notdir $(VIM)),vim)
 	VIM_FLAGS += -N -Es
-else ifeq ($(VIM),nvim)
+else ifeq ($(notdir $(VIM)),nvim)
 	VIM_FLAGS += --headless
 endif
 
