@@ -1,8 +1,8 @@
 VIM ?= vim
 VIM_FLAGS ?= --clean -u vimrc
-ifeq ($(VIM),vim)
+ifeq ($(notdir $(VIM)),vim)
 	VIM_FLAGS += -N -Es
-else ifeq ($(VIM),nvim)
+else ifeq ($(notdir $(VIM)),nvim)
 	VIM_FLAGS += --headless
 endif
 
@@ -15,6 +15,8 @@ clean:
 
 .PHONY: test
 test: test/vader.vim
+	@echo Running tests against $(VIM) $(VIM_FLAGS)
+	@echo
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS) -R                                   -c 'Vader! symlink.vader'
 	@cd test && $(VIM) $(VIM_FLAGS)                                      -c 'Vader! symlink-edit-in-popup.vader'

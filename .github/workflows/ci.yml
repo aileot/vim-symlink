@@ -7,11 +7,21 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        editor: [vim, neovim]
     steps:
       - uses: actions/checkout@v4
       - name: vint
         uses: reviewdog/action-vint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: rhysd/action-setup-vim@v1
+        id: vim
+        with:
+          neovim: ${{ matrix.editor == 'neovim' }}
+          version: stable
       - name: test
+        env:
+          VIM: ${{ steps.vim.outputs.executable }}
         run: make test
