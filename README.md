@@ -49,7 +49,7 @@ Due to the `:file` redirection, you could get confused in some autocmd events:
 
 - The values of `autocmd-pattern`, `<amatch>`, and `<afile>`,
   to a symbolic link would be either the **symbolic link** itself or its
-  **resolved** path.
+  **resolved** path, depending on the triggered events.
 
 - The buffer names (by `bufname()`, or `nvim_buf_get_name()` in nvim)
   might be different from what you expect to the path as well.
